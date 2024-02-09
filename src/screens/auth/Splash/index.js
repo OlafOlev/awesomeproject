@@ -5,7 +5,7 @@ import {
     Image,
     Pressable
 } from "react-native";
-import Button from "../../../components/Button"
+import Button from "../../../components/Button";
 import { styles } from "./styles";
 
 const Splash = () => {
