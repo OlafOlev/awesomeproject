@@ -5,6 +5,8 @@ import AuthHeader from '../../../components/AuthHeader';
 import Input from '../../../components/Input';
 import Checkbox from '../../../components/Checkbox';
 import Button from "../../../components/Button";
+import Separator from '../../../components/Separator';
+
 const Signup = () => {
   const [checked, setChecked] = useState(false);
   return (
@@ -20,6 +22,7 @@ const Signup = () => {
         </Text>
       </View>
       <Button style={styles.button} title="Sign In" />
+      <Separator text="Or sign up with"/>
     </View>
   );
 };
