@@ -3,10 +3,12 @@ import { SafeAreaView } from "react-native";
 import Splash from './src/screens/auth/Splash';
 import AuthHeader from "./src/components/AuthHeader";
 import Signup from './src/screens/auth/Signup';
+import Signin from "./src/screens/auth/SignIn";
 
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import Config from "react-native-config"
+
 
 const App = () => {
   useEffect(()=> {
@@ -19,7 +21,7 @@ const App = () => {
   }, [])
   return (
     <SafeAreaView>
-      <Signup />
+      <Signin />
     </SafeAreaView>
   );
 };
