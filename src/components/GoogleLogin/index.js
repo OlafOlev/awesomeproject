@@ -7,6 +7,7 @@ import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-si
 
 const GoogleLogin = ({text}) => {
     const signIn = async () => {
+        console.log("test")
         try {
         await GoogleSignin.hasPlayServices();
         const userInfo = await GoogleSignin.signIn();
@@ -16,7 +17,7 @@ const GoogleLogin = ({text}) => {
         if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
         } else if (error.code === statusCodes. IN_PROGRESS) {
-        // operation (e.g. sign in) is in progress already
+        // operation (e.g. sign in) is in progress alreadyš
         } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         // play services not available or outdated
         } else {
@@ -25,7 +26,7 @@ const GoogleLogin = ({text}) => {
         }
     }   
     return(
-        <TouchableOpacity activeOpacity={0.6} style={styles.container}>
+        <TouchableOpacity activeOpacity={0.6} style={styles.container} onPress={signIn}>
             <Image style={styles.image} source={require('../../assets/google.png')} />
         </TouchableOpacity>
     )
