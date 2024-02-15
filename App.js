@@ -8,7 +8,10 @@ import Signin from "./src/screens/auth/SignIn";
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import Config from "react-native-config"
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   useEffect(()=> {
@@ -19,9 +22,21 @@ const App = () => {
       iosClientId: Config.IOS_CLIENT_ID,
     })
   }, [])
+
+  const theme={
+    colors: {
+      background:colors.white
+    }
+  }
   return (
     <SafeAreaView>
-      <Signin />
+      <NavigationContainer theme={theme}>
+      <Stack.Navigator>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen name="Signin" component={Signin} />
+      </Stack.Navigator>
+    </NavigationContainer>
     </SafeAreaView>
   );
 };
