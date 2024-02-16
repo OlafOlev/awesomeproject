@@ -3,13 +3,14 @@ import { SafeAreaView } from "react-native";
 import Splash from './src/screens/auth/Splash';
 import AuthHeader from "./src/components/AuthHeader";
 import Signup from './src/screens/auth/Signup';
-import Signin from "./src/screens/auth/SignIn";
+import Signin from "./src/screens/auth/Signin";
 
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import Config from "react-native-config"
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { colors } from "./src/utils/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,22 +23,19 @@ const App = () => {
       iosClientId: Config.IOS_CLIENT_ID,
     })
   }, [])
-
   const theme={
     colors: {
       background:colors.white
     }
   }
   return (
-    <SafeAreaView>
       <NavigationContainer theme={theme}>
       <Stack.Navigator>
-        <Stack.Screen name="Splash" component={Splash} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Signin" component={Signin} />
+        <Stack.Screen name="Splash" component={Splash} options={{headerShown: false}}/>
+        <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
+        <Stack.Screen name="Signin" component={Signin} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
-    </SafeAreaView>
   );
 };
 
