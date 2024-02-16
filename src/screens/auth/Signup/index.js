@@ -7,7 +7,7 @@ import Checkbox from '../../../components/Checkbox';
 import Button from "../../../components/Button";
 import Separator from '../../../components/Separator';
 import GoogleLogin from '../../../components/GoogleLogin';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView } from 'react-native-safe-area-context';
 
 const Signup = ({navigation}) => {
   const [checked, setChecked] = useState(false);

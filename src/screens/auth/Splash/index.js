@@ -17,6 +17,7 @@ const Splash = ({navigation}) => {
     const onSignin=() => {
         navigation.navigate('Signin')
     }
+    
     return(
         <View style={styles.container}>
             <Image resizeMode="contain" style={styles.image} source={require('../../../assets/splash_image.png')} />
