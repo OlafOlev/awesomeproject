@@ -6,22 +6,21 @@ const {width} = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
     container:{
-        marginHorizontal:8,
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center'
+        margin:8,
 
     },
     title:{
         color:colors.textGray,
+        oaddingVertical:8
     },
     image:{
-       width:(width-34) / 2,
+       width:(width-76) / 2,
        height:220,
        borderRadius:8,
     },
     price:{
-        color:colors.black
+        color:colors.black,
+        paddingBottom:8
     }
     
 })
