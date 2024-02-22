@@ -5,6 +5,8 @@ import Header from "../../../components/Header";
 import { styles } from "./styles";
 import { categories} from "../../../data/categories"
 import CategoryBox from "../../../components/CategoryBox";
+import { products } from "../../../data/products";
+import ProductHomeItem from "../../../components/ProductHomeItem";
 
 const Home = () => {
     const renderCategoryItem = (item, index) => {
@@ -13,12 +15,18 @@ const Home = () => {
             <CategoryBox title={item?.item?.title} image={item?.item?.image}></CategoryBox> 
         )
     }
+    const renderProductItem=({item})=> {
+        console.log( 'item => ', item)
+        return (
+            <ProductHomeItem {...item}/>
+        )
+    }
     return(
         <SafeAreaView>
-            <View style={styles.container}>
+            <View style={styles.šcontainer}>
                 <Header showSearch={true} title="Find All You Need"/>
                 <FlatList showsHorizontalScrollIndicator={false} style={styles.list} horizontal data={categories} renderItem={renderCategoryItem} keyExtractor={(item,index) => String(index)}/>
-                <Text>Home</Text>
+                <FlatList numColumns={2} data={products} renderItem={renderProductItem} keyExtractor={(item)=> String(item.id)} ListFooterComponent={<View style={{height:250}}/> } />
             </View>
         </SafeAreaView>
 
