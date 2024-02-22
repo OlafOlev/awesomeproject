@@ -8,11 +8,13 @@ import { FlatList } from "react-native";
 import CategoryBox from "../../../components/CategoryBox";
 import { products } from "../../../data/products";
 import ProductHomeItem from "../../../components/ProductHomeItem";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
-    const [selectedCategory, setSelectedCategory] = React.useState();
+    const navigation = useNavigation()
+    const [selectedCategory, setSelectedCategory] = useState();
     const [keyword, setKeyword] = useState()
-    const [selectedProducts, setSelectedProducts] = React.useState(products);
+    const [selectedProducts, setSelectedProducts] = useState(products);
 
     useEffect(() => {
         if (selectedCategory && !keyword){
@@ -40,9 +42,12 @@ const Home = () => {
 
     
     const renderProductItem = ({ item }) => {
-        console.log(item)
+        const onProductPress = (product) => {
+            navigation.navigate('ProductDetails', {product})
+        }
         return (
-            <ProductHomeItem {...item} />
+            <ProductHomeItem onPress={()=> onProductPress(item)}
+            {...item} />
         )
     }
     return (

@@ -23,6 +23,7 @@ const Tab = createBottomTabNavigator();
 import { Image} from "react-native";
 import Config from "react-native-config"
 import { colors } from "./src/utils/colors";
+import ProductDetails from "./src/screens/app/ProductDetails";
 
 const Tabs = () => {
   return (
@@ -87,6 +88,7 @@ const isSignedIn = true
           isSignedIn ? (
             <>
               <Stack.Screen name="Tabs" component={Tabs} options={{headerShown: false}}/>
+              <Stack.Screen name="ProductDetails" component={ProductDetails} options={{headerShown: false}}/>
             </>
           ) : (
             <>
